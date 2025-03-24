@@ -6,7 +6,7 @@
 
 This project is a script that comprehensively collects and exports AWS Security Hub's Security Controls information to an Excel file.
 
-To effectively utilize AWS Security Hub Security Controls, it is crucial to select appropriate Security Controls,
+To effectively utilize Security Controls, which is the CSPM feature of AWS Security Hub, it is crucial to select appropriate Security Controls,
 and this requires a process of collecting and analyzing detailed information about each Security Control.
 
 Unfortunately, AWS provides Security Hub Security Controls information dispersed across multiple APIs.
