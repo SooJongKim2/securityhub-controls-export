@@ -63,6 +63,7 @@ AWS Security Hub의 CSPM 기능인 Security Controls활용을 위해서는 적�
 ### git clone 및 패키지 설치
 ```bash
 git clone https://github.com/SooJongKim2/securityhub-controls-export.git
+cd securityhub-controls-export
 pip install boto3 pandas openpyxl aiohttp beautifulsoup4 pytz colorama tqdm
 ```
 
