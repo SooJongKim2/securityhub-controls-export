@@ -2,15 +2,15 @@
 
 ## 프로젝트 설명
 
-이 프로젝트는 AWS Security Hub의 보안 컨트롤(Security Controls) 정보를 종합적으로 수집하여 Excel 파일로 추출하는 스크립트입니다.
+This project is a script that comprehensively collects and exports AWS Security Hub's Security Controls information to an Excel file.
 
-AWS Security Hub Security Controls활용을 위해서는 적절한 Security Controls을 선택하는 것이 중요하며,
-이를 위해 각 Security Controls의 상세 정보를 수집하고 분석하는 과정이 필수적입니다.
+To effectively utilize Security Controls, which is the CSPM feature of AWS Security Hub, it is crucial to select appropriate Security Controls,
+and this requires a process of collecting and analyzing detailed information about each Security Control.
 
-안타깝게도 AWS에서는 Security Hub Security Controls 관련 정보를 여러 API를 통해 분산하여 제공하고 있습니다.
-특히 **Config Rule 맵핑 정보**나 필요한 **조치 설명 정보**와 같은 중요 데이터는 AWS Docs에서만 확인이 가능합니다.
+Unfortunately, AWS provides Security Hub Security Controls information dispersed across multiple APIs.
+Particularly, important data such as **Config Rule mapping information** and **remediation description** can only be found in AWS Docs.
 
-이 도구는 다양한 AWS API 호출과 AWS Docs 크롤링을 통해 보안 컨트롤에 대한 포괄적인 정보를 수집하고, 이를 하나의 Excel 파일로 통합하여 제공합니다.
+This tool collects comprehensive information about security controls through various AWS API calls and AWS Docs crawling, and integrates them into a single Excel file.
 
 ## 데이터 수집 방법
 
