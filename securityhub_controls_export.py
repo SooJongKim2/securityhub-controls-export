@@ -302,10 +302,10 @@ async def crawl_web_data(df):
     print_info("Creating remediation URLs...")
     df['Remediation URL to Crawl'] = await asyncio.gather(*[create_remediation_url(control_id) for control_id in df['Security Control ID']])
     df['Category'] = ''
+    df['Resource type'] = ''
     df['AWS Config rule'] = ''
     df['Schedule type'] = ''
-    df['Remediation'] = ''
-    df['Resource type'] = ''
+    df['Remediation'] = ''    
     
     print_info("Starting web crawling...")
     async with aiohttp.ClientSession() as session:
