@@ -4,7 +4,15 @@
 
 ## Project Description
 
-This project is a tool that comprehensively collects security control information from AWS Security Hub and exports it to an Excel file. While AWS Security Hub provides various security standards and controls, not all necessary information is available through a single API. This tool utilizes multiple AWS APIs and crawls AWS documentation to gather comprehensive information about controls.
+This project is a script that comprehensively collects and exports AWS Security Hub's Security Controls information to an Excel file.
+
+To effectively utilize AWS Security Hub Security Controls, it is crucial to select appropriate Security Controls,
+and this requires a process of collecting and analyzing detailed information about each Security Control.
+
+Unfortunately, AWS provides Security Hub Security Controls information dispersed across multiple APIs.
+Particularly, important data such as **Config Rule mapping information** and **remediation description** can only be found in AWS Docs.
+
+This tool collects comprehensive information about security controls through various AWS API calls and AWS Docs crawling, and integrates them into a single Excel file.
 
 ## Data Collection Methods
 
