@@ -1,4 +1,4 @@
-# AWS Security Hub Control Exporter
+# AWS Security Hub Controls Export (Config Rule Map info)
 
 [한국어 문서](README.ko.md)
 
