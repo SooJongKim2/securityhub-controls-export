@@ -44,6 +44,14 @@ AWS Security Hub의 CSPM 기능인 Security Controls활용을 위해서는 적�
 - Python 3.7 이상
 - AWS CLI 구성 및 적절한 IAM 권한
 
+### 실행 환경 옵션
+이 도구는 다음 환경에서 실행할 수 있습니다:
+1. 로컬 환경
+2. AWS Cloud Shell (빠른 설정을 위해 권장)
+   - AWS 자격 증명 구성이 필요 없음
+   - Python과 AWS CLI가 사전 설치되어 있음
+   - AWS 콘솔에 포함된 무료 서비스
+
 ### AWS 권한 설정
 이 도구를 실행하려면 다음 권한이 필요합니다:
 - securityhub:DescribeStandards

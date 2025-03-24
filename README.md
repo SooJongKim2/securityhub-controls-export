@@ -46,6 +46,14 @@ Information collection method for each column:
 - Python 3.7 or higher
 - AWS CLI configured with appropriate IAM permissions
 
+### Environment Options
+You can run this tool in:
+1. Local environment
+2. AWS Cloud Shell (recommended for quick setup)
+   - No AWS credential configuration needed
+   - Python and AWS CLI pre-installed
+   - Free service included with AWS Console
+
 ### AWS Permissions
 The following permissions are required to run this tool:
 - securityhub:DescribeStandards
