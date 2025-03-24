@@ -21,47 +21,52 @@ This tool collects comprehensive information about security controls through var
 - Exports information to Excel file
 - Performance optimization through multiprocessing and async processing
 
-## Installation
+## Installation and Usage
 
-### Prerequisites
+### 1. Prerequisites
 - Python 3.7 or higher
 - AWS CLI configured with appropriate IAM permissions
+- pip (Python package manager)
 
-### Environment Options
-You can run this tool in:
+### 2. Environment Options
 1. Local environment
-2. AWS Cloud Shell (recommended for quick setup)
+2. AWS Cloud Shell (recommended)
    - No AWS credential configuration needed
    - Python and AWS CLI pre-installed
    - Free service included with AWS Console
 
-### AWS Permissions
-The following permissions are required to run this tool:
+### 3. AWS Permissions Required
+Required IAM permissions:
 - securityhub:DescribeStandards
 - securityhub:ListSecurityControlDefinitions
 - securityhub:GetSecurityControlDefinition
 
-## Usage
+### 4. Installation Steps
 
-### Git Clone & Package Installation
 ```bash
+# 1. Clone repository
 git clone https://github.com/SooJongKim2/securityhub-controls-export.git
+
+# 2. Navigate to project directory
 cd securityhub-controls-export
-pip install boto3 pandas openpyxl aiohttp beautifulsoup4 pytz colorama tqdm
+
+# 3. Install required packages
+pip install -r requirements.txt
 ```
 
-### Basic Execution
+### 5. Execution Methods
+
 ```bash
+# Basic execution
 python securityhub_controls_export.py
-```
 
-### Execute with All Standard Information
-```bash
+# Execute with all standard information
 python securityhub_controls_export.py -wide
 ```
 
-### Output
-Upon completion, an Excel file named `securityhub_controls_%y%m%d_%H%M.xlsx` will be generated, containing comprehensive information about all Security Controls.
+### 6. Execution Results
+- Generated filename: `securityhub_controls_%y%m%d_%H%M.xlsx`
+- Included information: All Security Control related information
 
 ## Data Collection Methods
 

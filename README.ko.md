@@ -1,4 +1,4 @@
-# AWS Security Hub Controls Export
+# AWS Security Hub Controls Export (Config Rule Map info)
 
 ## 프로젝트 설명
 
@@ -19,45 +19,52 @@ AWS Security Hub의 CSPM 기능인 Security Controls활용을 위해서는 적�
 - 정보를 Excel 파일로 내보내기
 - 멀티프로세싱과 비동기 처리를 통한 성능 최적화
 
-## 설치 방법
+## 설치 및 사용 방법
 
-### 필수 요구사항
+### 1. 필수 요구사항
 - Python 3.7 이상
 - AWS CLI 구성 및 적절한 IAM 권한
+- pip (Python 패키지 관리자)
 
-### 실행 환경 옵션
+### 2. 실행 환경 선택
 1. 로컬 환경
-2. AWS Cloud Shell (빠른 설정을 위해 권장)
-   - AWS 자격 증명 구성이 필요 없음
-   - Python과 AWS CLI가 사전 설치되어 있음
-   - AWS 콘솔에 포함된 무료 서비스
+2. AWS Cloud Shell (권장)
+   - AWS 자격 증명 자동 구성
+   - Python 및 AWS CLI 사전 설치
+   - AWS 콘솔에서 무료로 사용 가능
 
-### AWS 권한 설정
+### 3. AWS 권한 설정
+필요한 IAM 권한:
 - securityhub:DescribeStandards
 - securityhub:ListSecurityControlDefinitions
 - securityhub:GetSecurityControlDefinition
 
-## 사용 방법
+### 4. 설치 절차
 
-### git clone 및 패키지 설치
 ```bash
+# 1. 리포지토리 복제
 git clone https://github.com/SooJongKim2/securityhub-controls-export.git
+
+# 2. 프로젝트 디렉토리로 이동
 cd securityhub-controls-export
-pip install boto3 pandas openpyxl aiohttp beautifulsoup4 pytz colorama tqdm
+
+# 3. 필요한 패키지 설치
+pip install -r requirements.txt
 ```
 
-### 기본 실행
+### 5. 실행 방법
+
 ```bash
+# 기본 실행
 python securityhub_controls_export.py
-```
 
-### 모든 표준 정보를 포함하여 실행
-```bash
+# 모든 표준 정보를 포함하여 실행
 python securityhub_controls_export.py -wide
 ```
 
-### 출력
-실행이 완료되면 `securityhub_controls_%y%m%d_%H%M.xlsx` 형식의 Excel 파일이 생성됩니다. 이 파일에는 모든 Security Control에 대한 종합적인 정보가 포함되어 있습니다.
+### 6. 실행 결과
+- 생성 파일명: `securityhub_controls_%y%m%d_%H%M.xlsx`
+- 포함 정보: Security Control 관련 모든 정보
 
 ## 데이터 수집 방법
 
