@@ -12,31 +12,12 @@ AWS Security Hub의 CSPM 기능인 Security Controls활용을 위해서는 적�
 
 이 도구는 다양한 AWS API 호출과 AWS Docs 크롤링을 통해 보안 컨트롤에 대한 포괄적인 정보를 수집하고, 이를 하나의 Excel 파일로 통합하여 제공합니다.
 
-## 데이터 수집 방법
-
-각 컬럼별 정보 획득 방법:
-
-### AWS API를 통해 수집하는 정보
-- **Security Control ID**: `get_security_control_definition` API
-- **Title**: `get_security_control_definition` API
-- **Description**: `get_security_control_definition` API
-- **Severity Rating**: `get_security_control_definition` API
-- **Current Region Availability**: `get_security_control_definition` API
-- **Remediation URL**: `get_security_control_definition` API
-- **Parameters**: `get_security_control_definition` API의 ParameterDefinitions 필드
-- **NbStandardsImplementedIn**: `describe_standards`와 `list_security_control_definitions` API 조합
-- **ImplementedInStandards**: `describe_standards`와 `list_security_control_definitions` API 조합
-- **각 표준별 구현 여부**: `describe_standards`와 `list_security_control_definitions` API 조합
-
-### URL 생성 함수로 생성하는 정보
-- **Remediation URL to Crawl**: control_id를 기반으로 AWS 문서 URL 생성
-
-### 웹 크롤링을 통해 수집하는 정보
-- **Category**: AWS Security Hub 문서 크롤링
-- **AWS Config rule**: AWS Security Hub 문서 크롤링
-- **Schedule type**: AWS Security Hub 문서 크롤링
-- **Remediation**: AWS Security Hub 문서 크롤링
-- **Resource type**: AWS Security Hub 문서 크롤링
+## 주요 기능
+- AWS Security Hub의 모든 보안 컨트롤 정보 수집
+- 각 컨트롤이 어떤 보안 표준에 구현되어 있는지 표시
+- AWS 문서에서 추가 정보(카테고리, Config 규칙, 리소스 타입 등) 크롤링
+- 정보를 Excel 파일로 내보내기
+- 멀티프로세싱과 비동기 처리를 통한 성능 최적화
 
 ## 설치 방법
 
@@ -80,12 +61,31 @@ python securityhub_controls_export.py -wide
 ### 출력
 실행이 완료되면 `securityhub_controls_%y%m%d_%H%M.xlsx` 형식의 Excel 파일이 생성됩니다. 이 파일에는 모든 Security Control에 대한 종합적인 정보가 포함되어 있습니다.
 
-## 주요 기능
-- AWS Security Hub의 모든 보안 컨트롤 정보 수집
-- 각 컨트롤이 어떤 보안 표준에 구현되어 있는지 표시
-- AWS 문서에서 추가 정보(카테고리, Config 규칙, 리소스 타입 등) 크롤링
-- 정보를 Excel 파일로 내보내기
-- 멀티프로세싱과 비동기 처리를 통한 성능 최적화
+## 데이터 수집 방법
+
+각 컬럼별 정보 획득 방법:
+
+### AWS API를 통해 수집하는 정보
+- **Security Control ID**: `get_security_control_definition` API
+- **Title**: `get_security_control_definition` API
+- **Description**: `get_security_control_definition` API
+- **Severity Rating**: `get_security_control_definition` API
+- **Current Region Availability**: `get_security_control_definition` API
+- **Remediation URL**: `get_security_control_definition` API
+- **Parameters**: `get_security_control_definition` API의 ParameterDefinitions 필드
+- **NbStandardsImplementedIn**: `describe_standards`와 `list_security_control_definitions` API 조합
+- **ImplementedInStandards**: `describe_standards`와 `list_security_control_definitions` API 조합
+- **각 표준별 구현 여부**: `describe_standards`와 `list_security_control_definitions` API 조합
+
+### URL 생성 함수로 생성하는 정보
+- **Remediation URL to Crawl**: control_id를 기반으로 AWS 문서 URL 생성
+
+### 웹 크롤링을 통해 수집하는 정보
+- **Category**: AWS Security Hub 문서 크롤링
+- **AWS Config rule**: AWS Security Hub 문서 크롤링
+- **Schedule type**: AWS Security Hub 문서 크롤링
+- **Remediation**: AWS Security Hub 문서 크롤링
+- **Resource type**: AWS Security Hub 문서 크롤링
 
 ## 참고 사항
 - AWS 계정과 리전에 따라 사용 가능한 보안 표준과 컨트롤이 다를 수 있습니다.

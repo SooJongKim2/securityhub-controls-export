@@ -14,31 +14,12 @@ Particularly, important data such as **Config Rule mapping information** and **r
 
 This tool collects comprehensive information about security controls through various AWS API calls and AWS Docs crawling, and integrates them into a single Excel file.
 
-## Data Collection Methods
-
-Information collection method for each column:
-
-### Information Collected via AWS API
-- **Security Control ID**: `get_security_control_definition` API
-- **Title**: `get_security_control_definition` API
-- **Description**: `get_security_control_definition` API
-- **Severity Rating**: `get_security_control_definition` API
-- **Current Region Availability**: `get_security_control_definition` API
-- **Remediation URL**: `get_security_control_definition` API
-- **Parameters**: `ParameterDefinitions` field from `get_security_control_definition` API
-- **NbStandardsImplementedIn**: Combination of `describe_standards` and `list_security_control_definitions` APIs
-- **ImplementedInStandards**: Combination of `describe_standards` and `list_security_control_definitions` APIs
-- **Implementation Status per Standard**: Combination of `describe_standards` and `list_security_control_definitions` APIs
-
-### Information Generated via URL Function
-- **Remediation URL to Crawl**: AWS documentation URL generated based on control_id
-
-### Information Collected via Web Crawling
-- **Category**: AWS Security Hub documentation crawling
-- **AWS Config rule**: AWS Security Hub documentation crawling
-- **Schedule type**: AWS Security Hub documentation crawling
-- **Remediation**: AWS Security Hub documentation crawling
-- **Resource type**: AWS Security Hub documentation crawling
+## Key Features
+- Collects all security control information from AWS Security Hub
+- Shows which security standards each control is implemented in
+- Crawls additional information (categories, Config rules, resource types, etc.) from AWS documentation
+- Exports information to Excel file
+- Performance optimization through multiprocessing and async processing
 
 ## Installation
 
@@ -82,12 +63,31 @@ python securityhub_controls_export.py -wide
 ### Output
 Upon completion, an Excel file named `securityhub_controls_%y%m%d_%H%M.xlsx` will be generated, containing comprehensive information about all Security Controls.
 
-## Key Features
-- Collects all security control information from AWS Security Hub
-- Shows which security standards each control is implemented in
-- Crawls additional information (categories, Config rules, resource types, etc.) from AWS documentation
-- Exports information to Excel file
-- Performance optimization through multiprocessing and async processing
+## Data Collection Methods
+
+Information collection method for each column:
+
+### Information Collected via AWS API
+- **Security Control ID**: `get_security_control_definition` API
+- **Title**: `get_security_control_definition` API
+- **Description**: `get_security_control_definition` API
+- **Severity Rating**: `get_security_control_definition` API
+- **Current Region Availability**: `get_security_control_definition` API
+- **Remediation URL**: `get_security_control_definition` API
+- **Parameters**: `ParameterDefinitions` field from `get_security_control_definition` API
+- **NbStandardsImplementedIn**: Combination of `describe_standards` and `list_security_control_definitions` APIs
+- **ImplementedInStandards**: Combination of `describe_standards` and `list_security_control_definitions` APIs
+- **Implementation Status per Standard**: Combination of `describe_standards` and `list_security_control_definitions` APIs
+
+### Information Generated via URL Function
+- **Remediation URL to Crawl**: AWS documentation URL generated based on control_id
+
+### Information Collected via Web Crawling
+- **Category**: AWS Security Hub documentation crawling
+- **AWS Config rule**: AWS Security Hub documentation crawling
+- **Schedule type**: AWS Security Hub documentation crawling
+- **Remediation**: AWS Security Hub documentation crawling
+- **Resource type**: AWS Security Hub documentation crawling
 
 ## Notes
 - Available security standards and controls may vary depending on AWS account and region
