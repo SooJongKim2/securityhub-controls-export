@@ -31,7 +31,7 @@ Information collection method for each column:
 - **Implementation Status per Standard**: Combination of `describe_standards` and `list_security_control_definitions` APIs
 
 ### Information Generated via URL Function
-- **Remediation URL2**: AWS documentation URL generated based on control_id
+- **Remediation URL to Crawl**: AWS documentation URL generated based on control_id
 
 ### Information Collected via Web Crawling
 - **Category**: AWS Security Hub documentation crawling

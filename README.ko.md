@@ -29,7 +29,7 @@ AWS Security Hub의 CSPM 기능인 Security Controls활용을 위해서는 적�
 - **각 표준별 구현 여부**: `describe_standards`와 `list_security_control_definitions` API 조합
 
 ### URL 생성 함수로 생성하는 정보
-- **Remediation URL2**: control_id를 기반으로 AWS 문서 URL 생성
+- **Remediation URL to Crawl**: control_id를 기반으로 AWS 문서 URL 생성
 
 ### 웹 크롤링을 통해 수집하는 정보
 - **Category**: AWS Security Hub 문서 크롤링
