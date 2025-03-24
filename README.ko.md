@@ -49,7 +49,7 @@ git clone https://github.com/SooJongKim2/securityhub-controls-export.git
 cd securityhub-controls-export
 
 # 3. 필요한 패키지 설치
-pip install -r requirements.txt
+pip install boto3 pandas openpyxl aiohttp beautifulsoup4 pytz colorama tqdm
 ```
 
 ### 5. 실행 방법

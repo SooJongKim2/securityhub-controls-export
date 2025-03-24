@@ -51,7 +51,7 @@ git clone https://github.com/SooJongKim2/securityhub-controls-export.git
 cd securityhub-controls-export
 
 # 3. Install required packages
-pip install -r requirements.txt
+pip install boto3 pandas openpyxl aiohttp beautifulsoup4 pytz colorama tqdm
 ```
 
 ### 5. Execution Methods
