@@ -374,42 +374,35 @@ async def main(wide_format=False):
         
         # Include timestamp in filename
         current_time = datetime.now().strftime('%y%m%d_%H%M')
-        filename = f'securityhub_controls_{current_time}.xlsx'
+        excel_filename = f'securityhub_controls_{current_time}.xlsx'
+        csv_filename = f'securityhub_controls_{current_time}.csv'
         
-        print_header("CREATING EXCEL FILE")
-        # Save to Excel file
-        writer = pd.ExcelWriter(filename, engine='openpyxl')
+        print_header("CREATING OUTPUT FILES")
         
-        # Configure column width based on format
+        # Configure format
         if not wide_format:
             print_info("Using standard format (excluding standard-specific columns)")
-            # Basic format - exclude standard-specific columns
             standard_columns = [col for col in df.columns if col.startswith('Implemented in ')]
             df_export = df.drop(columns=standard_columns)
         else:
             print_info("Using wide format (including standard-specific columns)")
-            # Extended format - include all columns
             df_export = df
             
-        df_export.to_excel(writer, index=False, sheet_name='Security Controls')
-        worksheet = writer.sheets['Security Controls']
+        # Save to Excel file
+        print_info(f"Saving Excel file: {excel_filename}")
+        df_export.to_excel(excel_filename, index=False, sheet_name='Security Controls')
         
-        # Adjust column widths
-        print_info("Adjusting column widths...")
-        for idx, col in enumerate(df_export.columns):
-            max_length = max(
-                df_export[col].astype(str).apply(len).max(),
-                len(col)
-            )
-            worksheet.column_dimensions[chr(65 + idx)].width = min(max_length + 2, 100)
-        
-        writer.close()
+        # Save to CSV file with UTF-8 encoding and BOM
+        print_info(f"Saving CSV file: {csv_filename}")
+        df_export.to_csv(csv_filename, index=False, encoding='utf-8-sig')
         
         end_time = time.time()
         elapsed_time = end_time - start_time
         
         print_header("EXPORT COMPLETED")
-        print_success(f"Successfully exported {len(controls_data)} security controls to {filename}")
+        print_success(f"Successfully exported {len(controls_data)} security controls to:")
+        print_success(f"- Excel: {excel_filename}")
+        print_success(f"- CSV: {csv_filename}")
         print_success(f"Total execution time: {elapsed_time:.2f} seconds ({elapsed_time/60:.2f} minutes)")
         
     except Exception as e:

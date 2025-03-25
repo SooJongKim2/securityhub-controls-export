@@ -1,2 +1,4 @@
 *.xlsx
+*.csv
 !*sample.xlsx
+!*sample.csv
